@@ -1,14 +1,9 @@
-import { createContext, FC, useContext, useEffect, useState } from "react";
-import jwt_decode from "jwt-decode";
+import { createContext, FC, useContext } from "react";
 import { useNavigate } from "react-router";
-import { User } from "../auth/User";
-
-type AuthTokens = { access: string; refresh: string };
+import { useResetRecoilState, useSetRecoilState } from "recoil";
+import { authTokensState } from "./State";
 
 type AuthContextType = {
-  user: User | null;
-  authTokens: AuthTokens | null;
-  setAuthTokens: (authTokens: AuthTokens) => void;
   loginUser: (username: string, password: string) => Promise<any>;
   logoutUser: Function;
 };
@@ -26,18 +21,7 @@ type Props = {
 };
 
 export const AuthProvider: FC<Props> = ({ children }) => {
-  const cachedAuthToken = localStorage.getItem("authTokens");
-
-  const [authTokens, setAuthTokens] = useState<AuthTokens | null>(() =>
-    cachedAuthToken ? JSON.parse(cachedAuthToken) : null
-  );
-
-  const [user, setUser] = useState<User | null>(() =>
-    cachedAuthToken ? jwt_decode(cachedAuthToken) : null
-  );
-
-  const [loading, setLoading] = useState(true);
-
+  const resetAuthTokens = useResetRecoilState(authTokensState);
   const navigate = useNavigate();
 
   const loginUser = async (username: string, password: string) => {
@@ -63,31 +47,18 @@ export const AuthProvider: FC<Props> = ({ children }) => {
   };
 
   const logoutUser = () => {
-    setAuthTokens(null);
-    setUser(null);
-    localStorage.removeItem("authTokens");
+    resetAuthTokens();
     navigate("/");
   };
 
   const contextData = {
-    user,
-    authTokens,
-    setAuthTokens,
+    // authTokens,
+    // setAuthTokens,
     loginUser,
     logoutUser,
   };
 
-  useEffect(() => {
-    if (authTokens) {
-      setUser(jwt_decode(authTokens.access));
-    }
-
-    setLoading(false);
-  }, [authTokens, loading]);
-
   return (
-    <AuthContext.Provider value={contextData}>
-      {loading ? null : children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
   );
 };

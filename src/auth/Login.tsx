@@ -2,11 +2,10 @@ import { FC, useState } from "react";
 import "./Login.scss";
 import { Button, Form, Input } from "antd";
 import Password from "antd/es/input/Password";
-import { useAuth } from "../core/AuthContext";
+import { useAuth } from "./AuthContext";
 
 export const Login: FC = () => {
   const { loginUser } = useAuth();
-  const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
 
   const onFinish = async ({
@@ -16,7 +15,6 @@ export const Login: FC = () => {
     username: string;
     password: string;
   }) => {
-    setLoading(true);
     await loginUser(username, password);
   };
 
@@ -57,7 +55,7 @@ export const Login: FC = () => {
               {({ getFieldsError }) => (
                 <Button
                   type="primary"
-                  loading={loading}
+                  loading={true}
                   disabled={
                     getFieldsError().filter(({ errors }) => errors.length)
                       .length > 0

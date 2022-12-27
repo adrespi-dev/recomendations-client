@@ -1,11 +1,14 @@
 import { AntdTheme } from "./core/AntdTheme";
 import { AppRouter } from "./core/AppRouter";
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
-    <AntdTheme>
-      <AppRouter />
-    </AntdTheme>
+    <RecoilRoot>
+      <AntdTheme>
+        <AppRouter />
+      </AntdTheme>
+    </RecoilRoot>
   );
 }
 

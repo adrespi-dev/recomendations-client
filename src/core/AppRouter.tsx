@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { Admin } from "../admin/Admin";
 import { Login } from "../auth/Login";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "../auth/AuthContext";
 import { RequireAuth } from "./RequireAuth";
 
 export const AppRouter: FC = () => (

@@ -1,14 +1,16 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { FC } from "react";
-import { useAuth } from "./AuthContext";
+import { FC, Suspense } from "react";
+import { useRecoilValue } from "recoil";
+import { currentUserState } from "../auth/State";
 
 export const RequireAuth: FC<any> = ({ children }) => {
-  let auth = useAuth();
-  let location = useLocation();
+  const location = useLocation();
+  const user = useRecoilValue(currentUserState);
 
-  if (!auth.user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return children;
+  return (
+    <Suspense fallback={<div>cargando...</div>}>
+      {!user && <Navigate to="/login" state={{ from: location }} replace />}
+      {user && children}
+    </Suspense>
+  );
 };
