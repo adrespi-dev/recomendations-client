@@ -10,9 +10,23 @@
   transition: none;
 }
 
+.ant-input-status-error:focus,
+.ant-input-status-error.ant-input-focused {
+  outline: 2px solid #da1e28 !important;
+  outline-offset: -2px;
+  transition: none;
+}
+
 .ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-focused {
   outline: 2px solid #0f62fe;
+  outline-offset: -2px;
+  transition: none;
+}
+
+.ant-input-affix-wrapper-status-error:focus,
+.ant-input-affix-wrapper-status-error.ant-input-affix-wrapper-focused {
+  outline: 2px solid #da1e28 !important;
   outline-offset: -2px;
   transition: none;
 }

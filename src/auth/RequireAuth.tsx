@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { FC, Suspense } from "react";
 import { useRecoilValue } from "recoil";
-import { currentUserState } from "../auth/State";
+import { currentUserState } from "./State";
 
 export const RequireAuth: FC<any> = ({ children }) => {
   const location = useLocation();

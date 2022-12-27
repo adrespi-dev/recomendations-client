@@ -9,6 +9,7 @@ export const AntdTheme: FC<any> = ({ children }) => {
           fontFamily: "Inter",
           colorText: "#414868",
           colorPrimary: "#0f62fe",
+          colorError: "#da1e28",
         },
         components: {
           Button: { controlHeight: 48 },
