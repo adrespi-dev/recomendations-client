@@ -1,0 +1,18 @@
+.ant-form-item-label {
+  font-weight: 600;
+  color: #414868;
+}
+
+.ant-input:focus,
+.ant-input-focused {
+  outline: 2px solid #0f62fe;
+  outline-offset: -2px;
+  transition: none;
+}
+
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  outline: 2px solid #0f62fe;
+  outline-offset: -2px;
+  transition: none;
+}

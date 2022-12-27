@@ -1,8 +1,12 @@
-import React from "react";
+import { AntdTheme } from "./core/AntdTheme";
 import { AppRouter } from "./core/AppRouter";
 
 function App() {
-  return <AppRouter />;
+  return (
+    <AntdTheme>
+      <AppRouter />
+    </AntdTheme>
+  );
 }
 
 export default App;
