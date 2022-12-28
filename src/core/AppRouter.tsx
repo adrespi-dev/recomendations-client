@@ -9,23 +9,27 @@ export const AppRouter: FC = () => (
   <BrowserRouter>
     <Routes>
       <Route
-        path="/admin"
+        path="admin"
         element={
           <RequireAuth>
             <Admin />
           </RequireAuth>
-        }
-      />
+        }>
+        <Route path="users" element={<div>Users</div>}></Route>
+        <Route path="roles" element={<div>Roles</div>}></Route>
+        <Route path="" element={<Navigate to="users" />} />
+        <Route path="*" element={<Navigate to="users" />} />
+      </Route>
 
       <Route
-        path="/login"
+        path="login"
         element={
           <RedirectIfLogged>
             <Login />
           </RedirectIfLogged>
         }
       />
-      <Route path="*" element={<Navigate to="/admin" />} />
+      <Route path="*" element={<Navigate to="admin" />} />
     </Routes>
   </BrowserRouter>
 );

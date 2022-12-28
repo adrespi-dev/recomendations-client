@@ -1,13 +1,6 @@
 import { FC } from "react";
-import { useResetRecoilState } from "recoil";
-import { authTokensState } from "../auth/State";
+import { Layout } from "./Layout";
 
 export const Admin: FC = () => {
-  const logout = useResetRecoilState(authTokensState);
-
-  return (
-    <>
-      <button onClick={logout}></button>
-    </>
-  );
+  return <Layout />;
 };
