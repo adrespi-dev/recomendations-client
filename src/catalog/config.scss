@@ -3,4 +3,31 @@
   max-width: 440px;
   width: 100%;
   margin: 0 auto;
+
+  .connector {
+    margin-top: 29px;
+  }
+
+  .connector-icon {
+    margin-right: 8px;
+    width: 34px;
+    height: 34px;
+
+    svg {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  .connector-text {
+    font-weight: 600;
+    margin-top: 3px;
+    font-size: 16px;
+  }
+}
+
+.ant-select-item-option-content {
+  .connector-icon {
+    display: none;
+  }
 }
