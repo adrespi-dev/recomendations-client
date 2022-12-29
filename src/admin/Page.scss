@@ -8,6 +8,10 @@
   justify-content: space-between;
 }
 
+.page-body {
+  height: calc(100% - 62px);
+}
+
 .page-table {
   height: calc(100% - 62px);
 }
