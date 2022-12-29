@@ -6,6 +6,7 @@ import { RequireAuth } from "../auth/RequireAuth";
 import { RedirectIfLogged } from "../auth/RedirectIfLogged";
 import { Users } from "../users/Users";
 import { Roles } from "../roles/Roles";
+import { CatalogData } from "../catalog/data";
 
 export const AppRouter: FC = () => (
   <BrowserRouter>
@@ -17,6 +18,12 @@ export const AppRouter: FC = () => (
             <Admin />
           </RequireAuth>
         }>
+        <Route path="catalog">
+          <Route path="data" element={<CatalogData />}></Route>
+          <Route path="config" element={<div>Config</div>}></Route>
+          <Route path="*" element={<Navigate to="data" />} />
+        </Route>
+
         <Route path="users" element={<Users />}></Route>
         <Route path="roles" element={<Roles />}></Route>
         <Route path="" element={<Navigate to="users" />} />
