@@ -1,17 +1,17 @@
-import { useResetRecoilState } from "recoil";
-import { API_CLIENT } from "../core/ApiClient";
-import { AuthTokens, authTokensState } from "./State";
+import { useMutation } from "react-query";
+import { apiClient } from "../core/ApiClient";
+import { AuthTokens } from "./State";
 
-type LoginProps = {
+type LoginParams = {
   username: string;
   password: string;
 };
 
-export const loginAsync = async ({ username, password }: LoginProps) => {
-  const result = await API_CLIENT.post<AuthTokens>("/auth/token/", {
-    username,
-    password,
-  });
+export const useLogin = () => {
+  const login = ({ username, password }: LoginParams) =>
+    apiClient
+      .post<AuthTokens>("/auth/token/", { username, password })
+      .then((r) => r.data);
 
-  return result.data;
+  return useMutation(login);
 };

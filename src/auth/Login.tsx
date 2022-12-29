@@ -3,21 +3,16 @@ import "./Login.scss";
 import { Alert, Button, Form, Input } from "antd";
 import Password from "antd/es/input/Password";
 import { useMutation } from "react-query";
-import { loginAsync } from "./Api";
 import { AxiosError } from "axios";
 import { useSetRecoilState } from "recoil";
 import { authTokensState } from "./State";
+import { useLogin } from "./Api";
 
 export const Login: FC = () => {
   const [form] = Form.useForm();
   const setAuthTokens = useSetRecoilState(authTokensState);
 
-  const {
-    isLoading,
-    isError,
-    error,
-    mutateAsync: login,
-  } = useMutation(loginAsync);
+  const { isLoading, isError, error, mutateAsync: login } = useLogin();
 
   const onFinish = async ({
     username,

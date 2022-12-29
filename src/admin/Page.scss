@@ -1,0 +1,18 @@
+.page-header {
+  width: 100%;
+  height: 62px;
+  border-bottom: 1px solid #e0e6f5;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  justify-content: space-between;
+}
+
+.page-table {
+  height: calc(100% - 62px);
+}
+
+.page-title {
+  font-weight: 600;
+  color: #000865;
+}

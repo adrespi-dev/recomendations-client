@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Users } from "react-feather";
+import { Shield, Users } from "react-feather";
 import { NavLink } from "react-router-dom";
 
 export const Navbar: FC = () => {
@@ -19,7 +19,7 @@ const Seguridad: FC = () => {
         <div className="layout-navbar-item-desc">Usuarios</div>
       </NavLink>
       <NavLink to={"roles"} className="layout-navbar-item">
-        <Users />
+        <Shield />
         <div className="layout-navbar-item-desc">Roles</div>
       </NavLink>
     </>

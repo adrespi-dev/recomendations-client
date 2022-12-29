@@ -1,0 +1,13 @@
+.ant-select-selector {
+  height: 48px !important;
+  display: flex;
+  align-items: center;
+}
+
+.ant-select-multiple .ant-select-selector {
+  height: auto !important;
+}
+
+.ant-select-selection-search-input {
+  height: 46px !important;
+}

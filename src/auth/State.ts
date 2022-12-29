@@ -19,6 +19,6 @@ export const currentUserState = selector<User | null>({
       return null;
     }
 
-    return jwt_decode(tokens.access);
+    return jwt_decode(tokens.access) as User;
   },
 });

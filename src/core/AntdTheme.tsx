@@ -12,7 +12,7 @@ export const AntdTheme: FC<any> = ({ children }) => {
           colorError: "#da1e28",
         },
         components: {
-          Button: { controlHeight: 48 },
+          Button: { controlHeightLG: 48, controlHeight: 38 },
           Input: { controlHeight: 48, borderRadius: 4 },
         },
       }}>

@@ -3,6 +3,10 @@
   color: #414868;
 }
 
+.ant-input:read-only {
+  background-color: #efefef;
+}
+
 .ant-input:focus,
 .ant-input-focused {
   outline: 2px solid #0f62fe;
