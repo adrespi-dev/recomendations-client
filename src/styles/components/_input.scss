@@ -34,3 +34,17 @@
   outline-offset: -2px;
   transition: none;
 }
+
+.ant-input-number:focus,
+.ant-input-number-focused {
+  outline: 2px solid #0f62fe;
+  outline-offset: -2px;
+  transition: none;
+}
+
+.ant-input-number-status-error:focus,
+.ant-input-number-status-error.ant-input-number-focused {
+  outline: 2px solid #da1e28 !important;
+  outline-offset: -2px;
+  transition: none;
+}

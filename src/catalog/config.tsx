@@ -1,4 +1,4 @@
-import { Button, Form, Input, message, Select } from "antd";
+import { Button, Form, Input, InputNumber, message, Select } from "antd";
 import { useForm } from "antd/es/form/Form";
 import Password from "antd/es/input/Password";
 import { FC, useState } from "react";
@@ -59,10 +59,10 @@ export const CatalogSettings: FC = () => {
 const FormMongoDB = () => {
   const [form] = useForm();
   const [api, contextHolder] = message.useMessage();
-  const { isLoading, data = {} } = useSetting("catalog-connector");
+  const { isLoading, data = {} } = useSetting("catalog-datasource");
 
   const { isLoading: isLoadingEdit, mutateAsync: setSetting } =
-    useSetSetting("catalog-connector");
+    useSetSetting("catalog-datasource");
 
   const onFinish = async (values: any) => {
     await setSetting(values);
@@ -81,12 +81,24 @@ const FormMongoDB = () => {
           onFinish={onFinish}
           initialValues={data}
           layout="vertical">
-          <Form.Item
-            label="Servidor"
-            name="host"
-            rules={[{ required: true, message: "Ingrese un servidor" }]}>
-            <Input placeholder="localhost" />
-          </Form.Item>
+          <div className="flex">
+            <Form.Item
+              className="flex-50"
+              style={{ paddingRight: 8 }}
+              label="Servidor"
+              name="host"
+              rules={[{ required: true, message: "Ingrese un servidor" }]}>
+              <Input placeholder="localhost" />
+            </Form.Item>
+
+            <Form.Item
+              className="flex-50"
+              label="Puerto"
+              name="port"
+              rules={[{ required: true, message: "Ingrese un puerto" }]}>
+              <InputNumber style={{ width: "100%" }} placeholder="localhost" />
+            </Form.Item>
+          </div>
 
           <Form.Item
             label="Base de datos"

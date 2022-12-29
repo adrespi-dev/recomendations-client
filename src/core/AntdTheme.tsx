@@ -14,6 +14,7 @@ export const AntdTheme: FC<any> = ({ children }) => {
         components: {
           Button: { controlHeightLG: 48, controlHeight: 38 },
           Input: { controlHeight: 48, borderRadius: 4 },
+          InputNumber: { controlHeight: 48, borderRadius: 4 },
         },
       }}>
       {children}

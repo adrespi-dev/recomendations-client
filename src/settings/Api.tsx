@@ -1,25 +1,27 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { apiClient } from "../core/ApiClient";
 
-const getCodeAsync = (code: string) => async () => {
+type SettingCode = "catalog-datasource";
+
+const getCodeAsync = (code: SettingCode) => async () => {
   const response = await apiClient.get<any>(`/api/settings/${code}/`);
   return response.data.value;
 };
 
-const getCode = (code: string) => getCodeAsync(code);
+const getCode = (code: SettingCode) => getCodeAsync(code);
 
-export const useSetting = (code: string) => {
+export const useSetting = (code: SettingCode) => {
   return useQuery(`setting-get-${code}`, getCode(code));
 };
 
-const setCodeAsync = (code: string) => async (values: any) => {
+const setCodeAsync = (code: SettingCode) => async (values: any) => {
   const response = await apiClient.post<any>(`/api/settings/${code}/`, values);
   return response.data;
 };
 
-const setCode = (code: string) => setCodeAsync(code);
+const setCode = (code: SettingCode) => setCodeAsync(code);
 
-export const useSetSetting = (code: string) => {
+export const useSetSetting = (code: SettingCode) => {
   const queryClient = useQueryClient();
   return useMutation(setCode(code), {
     onSuccess: () => queryClient.invalidateQueries(`setting-get-${code}`),

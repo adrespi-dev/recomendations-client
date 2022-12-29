@@ -22,7 +22,7 @@ const Catalogo: FC = () => {
 
       <NavLink className="layout-navbar-item" to={"catalog/config"}>
         <Settings />
-        <div className="layout-navbar-item-desc">Conector</div>
+        <div className="layout-navbar-item-desc">Fuente de datos</div>
       </NavLink>
     </div>
   );
