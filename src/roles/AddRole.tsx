@@ -91,7 +91,7 @@ const RoleForm: FC<{
         </Form.Item>
 
         <Form.Item label="Permisos" name="permissions">
-          <Select mode="multiple" placeholder="Please select favourite colors">
+          <Select mode="multiple" placeholder="Seleccione los permisos">
             {permissionsOptions.map((p) => (
               <Select.Option value={p.value}>{p.text}</Select.Option>
             ))}
