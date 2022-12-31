@@ -14,7 +14,7 @@ export const Navbar: FC = () => {
 const Catalogo: FC = () => {
   return (
     <div className="layout-navbar-section">
-      <div className="layout-navbar-section-title">Catalogo</div>
+      <div className="layout-navbar-section-title">Fuente de datos</div>
       <NavLink className="layout-navbar-item" to={"catalog/data"}>
         <Database />
         <div className="layout-navbar-item-desc">Datos</div>
@@ -22,7 +22,7 @@ const Catalogo: FC = () => {
 
       <NavLink className="layout-navbar-item" to={"catalog/config"}>
         <Settings />
-        <div className="layout-navbar-item-desc">Fuente de datos</div>
+        <div className="layout-navbar-item-desc">Configuración</div>
       </NavLink>
     </div>
   );

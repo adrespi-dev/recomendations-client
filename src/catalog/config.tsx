@@ -108,9 +108,16 @@ const FormMongoDB = () => {
           </Form.Item>
 
           <Form.Item
-            label="Colección"
-            name="collection"
-            rules={[{ required: true, message: "Ingrese una colección" }]}>
+            label="Colección de artículos"
+            name="item_collection"
+            rules={[{ required: true, message: "Ingrese un nombre" }]}>
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Colección de perfiles"
+            name="user_collection"
+            rules={[{ required: true, message: "Ingrese un nombre" }]}>
             <Input />
           </Form.Item>
 
