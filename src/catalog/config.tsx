@@ -124,14 +124,14 @@ const FormMongoDB = () => {
 
           <Form.Item
             label="Usuario"
-            name="usuario"
+            name="user"
             rules={[{ required: true, message: "Ingrese un usuario" }]}>
             <Input />
           </Form.Item>
 
           <Form.Item
             label="Contraseña"
-            name="contraseña"
+            name="password"
             rules={[{ required: true, message: "Ingrese una contraseña" }]}>
             <Password />
           </Form.Item>

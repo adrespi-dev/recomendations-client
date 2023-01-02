@@ -15,6 +15,9 @@
 
 .page-table {
   height: calc(100% - 62px);
+  width: calc(100vw - 260px);
+  overflow: hidden;
+  position: relative;
 }
 
 .page-title {
