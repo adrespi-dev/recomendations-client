@@ -1,5 +1,6 @@
 import { apiClient } from "../core/ApiClient";
-import { RecModel } from "./Type";
+import { PaginatedResult, PaginationParams } from "../core/Types";
+import { ModelTrainingLog, RecModel } from "./Type";
 
 export const getModels = async () => {
   const result = await apiClient.get<RecModel[]>("/api/models/");
@@ -24,5 +25,16 @@ export const updateModel = async ({
 
 export const deleteModel = async (ModelId: number) => {
   const result = await apiClient.delete(`/api/models/${ModelId}`);
+  return result.data;
+};
+
+export const getHistory = async (
+  modelId: number,
+  paginationParams: PaginationParams
+) => {
+  const result = await apiClient.get<PaginatedResult<ModelTrainingLog>>(
+    `/api/models/${modelId}/history`,
+    { params: paginationParams }
+  );
   return result.data;
 };

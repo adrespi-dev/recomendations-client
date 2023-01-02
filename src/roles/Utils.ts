@@ -7,6 +7,11 @@ const PERMISSIONS_MAP: any = {
   change_user: "Modificar Usuarios",
   view_user: "Ver Usuarios",
   delete_user: "Eliminar Usuarios",
+  view_recmodel: "Ver modelos",
+  add_recmodel: "Crear modelos",
+  change_recmodel: "Modificar modelos",
+  delete_recmodel: "Eliminar modelos",
+  view_traininglog: "Ver historial de entrenamiento",
 };
 
 export const permissionsOptions: { text: string; value: string }[] =

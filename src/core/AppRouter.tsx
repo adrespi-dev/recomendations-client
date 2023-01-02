@@ -24,6 +24,7 @@ export const AppRouter: FC = () => (
         <Route path="model">
           <Route path="params" element={<ModelParamsPage />}></Route>
           <Route path="history" element={<ModelHistory />}></Route>
+          <Route path="history/:id" element={<>LOOOOOOL</>}></Route>
           <Route path="*" element={<Navigate to="params" />} />
         </Route>
 
