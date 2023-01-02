@@ -8,6 +8,8 @@ import { Users } from "../users/Users";
 import { Roles } from "../roles/Roles";
 import { CatalogData } from "../catalog/data";
 import { CatalogSettings } from "../catalog/config";
+import { ModelParamsPage } from "../models/Params";
+import { ModelHistory } from "../models/History";
 
 export const AppRouter: FC = () => (
   <BrowserRouter>
@@ -19,6 +21,12 @@ export const AppRouter: FC = () => (
             <Admin />
           </RequireAuth>
         }>
+        <Route path="model">
+          <Route path="params" element={<ModelParamsPage />}></Route>
+          <Route path="history" element={<ModelHistory />}></Route>
+          <Route path="*" element={<Navigate to="params" />} />
+        </Route>
+
         <Route path="catalog">
           <Route
             path="query"

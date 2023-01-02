@@ -1,6 +1,6 @@
 import { Select } from "antd";
 import { FC, useEffect } from "react";
-import { Database, Settings } from "react-feather";
+import { Cpu, Database, PlayCircle, Settings } from "react-feather";
 import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -50,12 +50,30 @@ const Content: FC<{ models: RecModel[] }> = ({ models }) => {
           ))}
         </Select>
       </div>
-      <Catalogo />
+      <Entrenamiento />
+      <FuenteDeDatos />
     </>
   );
 };
 
-const Catalogo: FC = () => {
+const Entrenamiento: FC = () => {
+  return (
+    <div className="layout-navbar-section">
+      <div className="layout-navbar-section-title">Entrenamiento</div>
+      <NavLink className="layout-navbar-item" to={"model/params"}>
+        <Cpu />
+        <div className="layout-navbar-item-desc">Configuración</div>
+      </NavLink>
+
+      <NavLink className="layout-navbar-item" to={"model/history"}>
+        <PlayCircle />
+        <div className="layout-navbar-item-desc">Historial</div>
+      </NavLink>
+    </div>
+  );
+};
+
+const FuenteDeDatos: FC = () => {
   return (
     <div className="layout-navbar-section">
       <div className="layout-navbar-section-title">Fuente de datos</div>
@@ -71,7 +89,7 @@ const Catalogo: FC = () => {
 
       <NavLink className="layout-navbar-item" to={"catalog/config"}>
         <Settings />
-        <div className="layout-navbar-item-desc">Configuración</div>
+        <div className="layout-navbar-item-desc">Conexión</div>
       </NavLink>
     </div>
   );

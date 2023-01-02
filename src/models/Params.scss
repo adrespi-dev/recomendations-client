@@ -1,0 +1,56 @@
+.model-params {
+  display: flex;
+  align-items: stretch;
+
+  .model-params-title {
+    font-weight: 600;
+    color: #000865;
+    margin-bottom: 32px;
+  }
+
+  .model-params-navbar {
+    flex: 0 0 244px;
+    background: #f3f6ff;
+    border-right: 1px solid #e0e6f5;
+    padding: 0 16px;
+    padding-top: 64px;
+  }
+
+  .ant-menu-light {
+    background: transparent;
+    border-inline-end: none !important;
+
+    .ant-menu-item {
+      font-size: 16px;
+      height: 44px;
+      line-height: 44px;
+
+      &.ant-menu-item-selected {
+        background-color: #d3deff;
+        font-weight: 600;
+        color: #000865;
+      }
+
+      &:not(.ant-menu-item-selected):hover {
+        background-color: rgb(237 241 255);
+      }
+    }
+  }
+
+  .params-content {
+    flex: auto;
+    padding: 0 42px;
+    padding-top: 40px;
+    padding-bottom: 52px;
+    overflow: auto;
+  }
+
+  .params-form {
+    max-width: 620px;
+  }
+
+  .ant-alert,
+  .with-limit {
+    max-width: 364px;
+  }
+}
