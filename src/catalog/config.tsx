@@ -4,6 +4,7 @@ import Password from "antd/es/input/Password";
 import { FC, useState } from "react";
 import { useSetSetting, useSetting } from "../settings/Api";
 import "./config.scss";
+import { FormMongoDB } from "./FormMongo";
 import { ReactComponent as MongoLogo } from "./mongodb-icon.svg";
 import { ReactComponent as MySqlLogo } from "./mysql-icon.svg";
 import { ReactComponent as WebApiLogo } from "./webapi-icon.svg";
@@ -48,118 +49,11 @@ export const CatalogSettings: FC = () => {
             </Select.Option>
           </Select>
 
-          {type == "mongodb" && <FormMongoDB />}
-          {type == "mysql" && <FormMySQL />}
-          {type == "webapi" && <FormWebApi />}
+          {type === "mongodb" && <FormMongoDB />}
+          {type === "mysql" && <FormMySQL />}
+          {type === "webapi" && <FormWebApi />}
         </div>
       </div>
-    </>
-  );
-};
-
-const FormMongoDB = () => {
-  const [form] = useForm();
-  const [api, contextHolder] = message.useMessage();
-  const { isLoading, data = {} } = useSetting("catalog-datasource");
-
-  const { isLoading: isLoadingEdit, mutateAsync: setSetting } =
-    useSetSetting("catalog-datasource");
-
-  const onFinish = async (values: any) => {
-    await setSetting(values);
-    api.success({
-      content: "Configuración guardada correctamente",
-      type: "info",
-    });
-  };
-
-  return (
-    <>
-      {contextHolder}
-      {!isLoading && (
-        <Form
-          form={form}
-          onFinish={onFinish}
-          initialValues={data}
-          layout="vertical">
-          <div className="flex">
-            <Form.Item
-              className="flex-50"
-              style={{ paddingRight: 8 }}
-              label="Servidor"
-              name="host"
-              rules={[{ required: true, message: "Ingrese un servidor" }]}>
-              <Input placeholder="localhost" />
-            </Form.Item>
-
-            <Form.Item
-              className="flex-50"
-              label="Puerto"
-              name="port"
-              rules={[{ required: true, message: "Ingrese un puerto" }]}>
-              <InputNumber style={{ width: "100%" }} placeholder="localhost" />
-            </Form.Item>
-          </div>
-
-          <Form.Item
-            label="Base de datos"
-            name="database"
-            rules={[{ required: true, message: "Ingrese una base de datos" }]}>
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Colección de Ratings"
-            name="query_collection"
-            rules={[{ required: true, message: "Ingrese un nombre" }]}>
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Colección de Candidatos"
-            name="candidates_collection"
-            rules={[{ required: true, message: "Ingrese un nombre" }]}>
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Usuario"
-            name="user"
-            rules={[{ required: true, message: "Ingrese un usuario" }]}>
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Contraseña"
-            name="password"
-            rules={[{ required: true, message: "Ingrese una contraseña" }]}>
-            <Password />
-          </Form.Item>
-
-          <div className="flex" style={{ justifyContent: "flex-end" }}>
-            <Button
-              onClick={() => form.resetFields()}
-              style={{ marginRight: 12 }}>
-              Reiniciar
-            </Button>
-
-            <Form.Item shouldUpdate>
-              {({ getFieldsError }) => (
-                <Button
-                  type="primary"
-                  loading={isLoading || isLoadingEdit}
-                  disabled={
-                    getFieldsError().filter(({ errors }) => errors.length)
-                      .length > 0
-                  }
-                  htmlType="submit">
-                  Guardar
-                </Button>
-              )}
-            </Form.Item>
-          </div>
-        </Form>
-      )}
     </>
   );
 };

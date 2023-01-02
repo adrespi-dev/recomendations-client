@@ -5,3 +5,16 @@
 .flex-50 {
   flex: 50%;
 }
+
+.spin {
+  animation: 0.9s spin infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

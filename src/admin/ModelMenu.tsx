@@ -61,7 +61,7 @@ const Catalogo: FC = () => {
       <div className="layout-navbar-section-title">Fuente de datos</div>
       <NavLink className="layout-navbar-item" to={"catalog/query"}>
         <Database />
-        <div className="layout-navbar-item-desc">Ratings</div>
+        <div className="layout-navbar-item-desc">Consultas</div>
       </NavLink>
 
       <NavLink className="layout-navbar-item" to={"catalog/candidates"}>
