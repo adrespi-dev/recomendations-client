@@ -1,15 +1,22 @@
 import { FC } from "react";
 import { CheckConfig } from "./CheckConfig";
 import { DataTable } from "./DataTable";
+import { CollectionName } from "./Types";
 
-export const CatalogData: FC = () => (
-  <CheckConfig>
-    <div className="page-header">
-      <div className="page-title">Catálogo de Datos</div>
-      <div>{/* <AddRole /> */}</div>
-    </div>
-    <div className="page-table">
-      <DataTable />
-    </div>
-  </CheckConfig>
-);
+type Props = { collectionName: CollectionName };
+
+export const CatalogData: FC<Props> = ({ collectionName }) => {
+  return (
+    <CheckConfig>
+      <div className="page-header">
+        <div className="page-title">
+          Catálogo de Datos (
+          {collectionName === "query" ? "Ratings" : "Candidatos"})
+        </div>
+      </div>
+      <div className="page-table">
+        <DataTable collectionName={collectionName} />
+      </div>
+    </CheckConfig>
+  );
+};

@@ -6,7 +6,9 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { Suspense } from "react";
 import RecoilNexus from "recoil-nexus";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } },
+});
 
 function App() {
   return (

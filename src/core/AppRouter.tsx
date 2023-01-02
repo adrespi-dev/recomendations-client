@@ -20,9 +20,14 @@ export const AppRouter: FC = () => (
           </RequireAuth>
         }>
         <Route path="catalog">
-          <Route path="data" element={<CatalogData />}></Route>
+          <Route
+            path="query"
+            element={<CatalogData collectionName="query" />}></Route>
+          <Route
+            path="candidates"
+            element={<CatalogData collectionName="candidates" />}></Route>
           <Route path="config" element={<CatalogSettings />}></Route>
-          <Route path="*" element={<Navigate to="data" />} />
+          <Route path="*" element={<Navigate to="query" />} />
         </Route>
 
         <Route path="users" element={<Users />}></Route>

@@ -10,6 +10,7 @@ import { ReactComponent as WebApiLogo } from "./webapi-icon.svg";
 
 export const CatalogSettings: FC = () => {
   const [type, setType] = useState("mongodb");
+
   return (
     <>
       <div className="page-header">
@@ -108,15 +109,15 @@ const FormMongoDB = () => {
           </Form.Item>
 
           <Form.Item
-            label="Colección de artículos"
-            name="item_collection"
+            label="Colección de Ratings"
+            name="query_collection"
             rules={[{ required: true, message: "Ingrese un nombre" }]}>
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="Colección de perfiles"
-            name="user_collection"
+            label="Colección de Candidatos"
+            name="candidates_collection"
             rules={[{ required: true, message: "Ingrese un nombre" }]}>
             <Input />
           </Form.Item>

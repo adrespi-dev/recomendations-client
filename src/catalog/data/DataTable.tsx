@@ -1,45 +1,26 @@
 import { Alert, Empty } from "antd";
 import Table, { ColumnsType } from "antd/es/table";
 import { FC, useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { ActionButtons } from "../../components/ActionButtons";
-import { deleteCatalogRecord, getCatalogRecords } from "./Api";
+import { useMutation, useQuery } from "react-query";
+import { useRecoilValue } from "recoil";
+import { selectedModelIdState } from "../../models/State";
+import { getCatalogRecords } from "./Api";
 
-export const DataTable: FC = () => {
-  const queryClient = useQueryClient();
+export const DataTable: FC<{ collectionName: string }> = ({
+  collectionName,
+}) => {
+  const modelId = useRecoilValue(selectedModelIdState)!;
+
   const { data, isLoading, error } = useQuery(
-    "list-catalog-records",
-    getCatalogRecords
+    ["list-recored", modelId, collectionName],
+    () => getCatalogRecords(modelId, collectionName)
   );
-
-  const { mutateAsync: performDelete } = useMutation(deleteCatalogRecord);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedRecord, setSelectedRecord] = useState<any | null>(null);
 
   const columns: ColumnsType<any> = [
     {
       title: "ID",
       dataIndex: "id",
       key: "id",
-    },
-    {
-      title: "",
-      key: "actions",
-      render: (_, record) => {
-        return (
-          <ActionButtons
-            onEdit={() => {
-              setIsModalOpen(true);
-              setSelectedRecord(record);
-            }}
-            onDelete={async () => {
-              await performDelete(record.id);
-              queryClient.invalidateQueries("list-catalog-records");
-            }}
-          />
-        );
-      },
     },
   ];
 
@@ -58,15 +39,6 @@ export const DataTable: FC = () => {
         dataSource={data || []}
         locale={{ emptyText: <NoData /> }}
       />
-
-      {isModalOpen && selectedRecord && (
-        // <EditUser
-        //   user={selectedUser}
-        //   isModalOpen={isModalOpen}
-        //   setIsModalOpen={setIsModalOpen}
-        // />
-        <></>
-      )}
     </>
   );
 };

@@ -82,6 +82,51 @@
       margin-right: 18px;
     }
   }
+
+  .layout-navbar-loading {
+    height: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .layout-navbar-error {
+    height: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16;
+    margin-bottom: 14;
+    background-color: "#fff1f0";
+    border-color: "#ff170a";
+    color: "#e70000";
+  }
+
+  .layout-model-selector {
+    margin-bottom: 32px;
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #000865;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ant-select {
+      width: 100%;
+    }
+
+    .ant-select-selector {
+      height: 42px !important;
+    }
+
+    .ant-select-selection-search-input {
+      height: 42px !important;
+    }
+  }
 }
 
 @import "Page";

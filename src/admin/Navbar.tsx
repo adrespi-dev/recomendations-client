@@ -1,29 +1,13 @@
 import { FC } from "react";
-import { Database, Settings, Shield, Users } from "react-feather";
+import { Shield, Users } from "react-feather";
 import { NavLink } from "react-router-dom";
+import { ModelMenu } from "./ModelMenu";
 
 export const Navbar: FC = () => {
   return (
     <div className="layout-navbar">
-      <Catalogo />
+      <ModelMenu />
       <Seguridad />
-    </div>
-  );
-};
-
-const Catalogo: FC = () => {
-  return (
-    <div className="layout-navbar-section">
-      <div className="layout-navbar-section-title">Fuente de datos</div>
-      <NavLink className="layout-navbar-item" to={"catalog/data"}>
-        <Database />
-        <div className="layout-navbar-item-desc">Datos</div>
-      </NavLink>
-
-      <NavLink className="layout-navbar-item" to={"catalog/config"}>
-        <Settings />
-        <div className="layout-navbar-item-desc">Configuración</div>
-      </NavLink>
     </div>
   );
 };
