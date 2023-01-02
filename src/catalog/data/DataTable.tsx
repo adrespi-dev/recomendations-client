@@ -23,12 +23,17 @@ export const DataTable: FC<{ collectionName: string }> = ({
     const oneRecord = records[0] || {};
     const columns: any[] = [];
 
-    for (const [key] of Object.entries(oneRecord)) {
-      columns.push({
+    for (const [key, value] of Object.entries(oneRecord)) {
+      const col: any = {
         title: key,
         dataIndex: key,
         key: key,
-      });
+      };
+
+      if (Array.isArray(value)) {
+        col.render = (val: any[]) => <>{val.join(", ")}</>;
+      }
+      columns.push(col);
     }
 
     return columns;
