@@ -7,6 +7,7 @@ import { AxiosError } from "axios";
 import { useSetRecoilState } from "recoil";
 import { authTokensState } from "./State";
 import { useLogin } from "./Api";
+import { Logo } from "../components/Logo";
 
 export const Login: FC = () => {
   const [form] = Form.useForm();
@@ -28,6 +29,9 @@ export const Login: FC = () => {
   return (
     <div className="login-wrapper">
       <div className="login-form-container">
+        <div className="login-logo">
+          <Logo />
+        </div>
         <div className="login-card">
           <Form
             form={form}

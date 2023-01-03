@@ -10,17 +10,22 @@
   .login-card {
     padding: 12px 36px 36px;
     border-radius: 0.75rem;
-    width: 30rem;
+    width: 26rem;
     box-shadow: 0 16px 24px #2200330a, 0 6px 32px #0730721f,
       0 8px 12px #0e0d1a1f;
   }
 
   .login-title {
-    color: #414868;
+    color: #000865;
   }
 
   .login-form-item {
     width: 100%;
     margin-bottom: 38px;
+  }
+
+  .login-logo {
+    margin-bottom: 20px;
+    text-align: center;
   }
 }

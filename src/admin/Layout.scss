@@ -139,6 +139,55 @@
       height: 42px !important;
     }
   }
+
+  .layout-user {
+    display: flex;
+    align-items: center;
+
+    margin-right: 14px;
+    font-weight: 600;
+    color: #000865;
+
+    padding: 6px 12px;
+    border-radius: 4px;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      background: #f3f6ff;
+    }
+
+    .ant-avatar {
+      margin-right: 8px;
+    }
+  }
+}
+
+.user-popover {
+  .ant-popover-inner {
+    padding: 0;
+  }
+
+  .user-profile-menu {
+    width: 140px;
+
+    .ant-menu {
+      border-inline-end: 0px !important;
+    }
+
+    .ant-menu-item {
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      font-weight: 600;
+      color: #ff4d4f !important;
+      text-align: center;
+
+      &:hover {
+        background-color: #ffe5e6 !important;
+      }
+    }
+  }
 }
 
 @import "Page";

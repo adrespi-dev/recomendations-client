@@ -1,8 +1,7 @@
-import { Button, Form, Input, InputNumber, message, Select } from "antd";
+import { Button, Form, Input, Select } from "antd";
 import { useForm } from "antd/es/form/Form";
 import Password from "antd/es/input/Password";
 import { FC, useState } from "react";
-import { useSetSetting, useSetting } from "../settings/Api";
 import "./config.scss";
 import { FormMongoDB } from "./FormMongo";
 import { ReactComponent as MongoLogo } from "./mongodb-icon.svg";
