@@ -1,5 +1,42 @@
 .new-modal {
   padding-top: 64px;
-  max-width: 420px;
+  max-width: 640px;
   margin: 0 auto;
+
+  .with-limit {
+    max-width: 420px;
+  }
+
+  .model-types {
+    display: flex;
+    align-items: flex-start;
+
+    .model-type {
+      flex: 50%;
+      border: 1px solid #e0e6f5;
+      padding: 18px 16px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease-in;
+
+      .model-type-title {
+        font-weight: 600;
+        color: #000865;
+      }
+
+      .model-type-desc {
+        margin-top: 8px;
+      }
+
+      &:hover {
+        border-color: #6e6e6e;
+      }
+
+      &.selected {
+        background: #f0f5ff;
+        border: 1px solid #0f62fe;
+      }
+    }
+  }
 }
