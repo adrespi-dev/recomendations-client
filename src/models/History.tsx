@@ -1,4 +1,4 @@
-import { Pagination } from "antd";
+import { Empty, Pagination } from "antd";
 import { FC, useState } from "react";
 import { useQuery } from "react-query";
 import { useRecoilState } from "recoil";
@@ -35,19 +35,25 @@ export const ModelHistory: FC = () => {
           {data && (
             <div className="history-content">
               <div className="history-list">
+                {!data.results?.length && (
+                  <Empty description="No hay datos en el historial aún" />
+                )}
+
                 {data.results.map((log) => {
                   return <ModelHistoryItem key={log.id} log={log} />;
                 })}
               </div>
-              <Pagination
-                current={page}
-                onChange={(page) => setPage(page)}
-                pageSize={5}
-                total={data.count}
-                showTotal={(total, range) =>
-                  `Mostrando ${range[0]}-${range[1]} de ${total} registros`
-                }
-              />
+              {!!data.results?.length && (
+                <Pagination
+                  current={page}
+                  onChange={(page) => setPage(page)}
+                  pageSize={5}
+                  total={data.count}
+                  showTotal={(total, range) =>
+                    `Mostrando ${range[0]}-${range[1]} de ${total} registros`
+                  }
+                />
+              )}
             </div>
           )}
         </div>

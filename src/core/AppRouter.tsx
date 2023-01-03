@@ -10,6 +10,8 @@ import { CatalogData } from "../catalog/data";
 import { CatalogSettings } from "../catalog/config";
 import { ModelParamsPage } from "../models/Params";
 import { ModelHistory } from "../models/History";
+import { NewModel } from "../models/NewModel";
+import { EnsureModel } from "../models/EnsureModel";
 
 export const AppRouter: FC = () => (
   <BrowserRouter>
@@ -21,22 +23,25 @@ export const AppRouter: FC = () => (
             <Admin />
           </RequireAuth>
         }>
-        <Route path="model">
+        <Route path="new-model" element={<NewModel />}></Route>
+
+        <Route path="model" element={<EnsureModel />}>
           <Route path="params" element={<ModelParamsPage />}></Route>
           <Route path="history" element={<ModelHistory />}></Route>
           <Route path="history/:id" element={<>LOOOOOOL</>}></Route>
+          <Route path="" element={<Navigate to="params" />} />
           <Route path="*" element={<Navigate to="params" />} />
-        </Route>
 
-        <Route path="catalog">
-          <Route
-            path="query"
-            element={<CatalogData collectionName="query" />}></Route>
-          <Route
-            path="candidates"
-            element={<CatalogData collectionName="candidates" />}></Route>
-          <Route path="config" element={<CatalogSettings />}></Route>
-          <Route path="*" element={<Navigate to="query" />} />
+          <Route path="catalog">
+            <Route
+              path="query"
+              element={<CatalogData collectionName="query" />}></Route>
+            <Route
+              path="candidates"
+              element={<CatalogData collectionName="candidates" />}></Route>
+            <Route path="config" element={<CatalogSettings />}></Route>
+            <Route path="*" element={<Navigate to="query" />} />
+          </Route>
         </Route>
 
         <Route path="users" element={<Users />}></Route>

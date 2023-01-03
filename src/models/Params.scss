@@ -53,4 +53,10 @@
   .with-limit {
     max-width: 364px;
   }
+
+  .ant-empty-description {
+    .ant-alert {
+      max-width: 100%;
+    }
+  }
 }

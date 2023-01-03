@@ -25,6 +25,10 @@ export const ModelParamsNavbar: FC<NavbarProps> = ({
       key: "hiperparametros",
       label: "Hiperparámetros",
     },
+    {
+      key: "danger",
+      label: "Zona de peligro",
+    },
   ];
 
   return (

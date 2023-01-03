@@ -4,7 +4,7 @@ type ValidationError = { name: string; errors: string[] };
 
 export const getValidationErrors = (e: Error): ValidationError[] | null => {
   if (e instanceof AxiosError) {
-    if (e.response?.status == 400) {
+    if (e.response?.status === 400) {
       const data = e.response?.data || {};
       const errors: ValidationError[] = [];
 

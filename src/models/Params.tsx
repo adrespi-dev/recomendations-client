@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { Automatizacion } from "./forms/Automatizacion";
+import { DangerForm } from "./forms/Danger";
 import { GeneralForm } from "./forms/General";
 import { HiperParametros } from "./forms/HiperParametros";
 import { ModelParamsNavbar } from "./Navbar";
@@ -28,6 +29,8 @@ const Content: FC<{ selectedMenu: string }> = ({ selectedMenu }) => {
       return <Automatizacion />;
     case "hiperparametros":
       return <HiperParametros />;
+    case "danger":
+      return <DangerForm />;
     default:
       return <>No encontrado</>;
   }
