@@ -1,14 +1,21 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { ModelTrainingLog } from "./Type";
 import { CheckCircleTwoTone, MinusCircleTwoTone } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
+import ReactTimeAgo from "react-time-ago";
+import { formatDuration } from "../core/Utils";
 
 type Props = {
   log: ModelTrainingLog;
 };
 
 export const ModelHistoryItem: FC<Props> = ({ log }) => {
-  const { id, status, status_message } = log;
+  const { id, created_at, status, status_message, results } = log;
+
+  const duration = useMemo(
+    () => formatDuration(results["execution_time"]),
+    [results]
+  );
 
   return (
     <NavLink to={`${id}`} className="history-item">
@@ -28,7 +35,8 @@ export const ModelHistoryItem: FC<Props> = ({ log }) => {
         </div>
 
         <div className="history-item-sub">
-          Hace 5 días <span className="history-dot" /> 04:44
+          <ReactTimeAgo date={new Date(created_at)} />
+          <span className="history-dot" /> {duration}
         </div>
       </div>
     </NavLink>

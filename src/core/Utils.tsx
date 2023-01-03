@@ -20,3 +20,6 @@ export const getValidationErrors = (e: Error): ValidationError[] | null => {
 
   return null;
 };
+
+export const formatDuration = (seconds: number | undefined | null) =>
+  new Date((seconds || 0) * 1000).toISOString().slice(14, 19);

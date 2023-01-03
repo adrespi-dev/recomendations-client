@@ -4,6 +4,12 @@ import "./styles/theme.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import TimeAgo from "javascript-time-ago";
+
+import es from "javascript-time-ago/locale/es.json";
+
+TimeAgo.addDefaultLocale(es);
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

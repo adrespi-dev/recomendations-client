@@ -52,15 +52,15 @@ export const Automatizacion: FC = () => {
           <Form.Item
             name="training_buffer_duration"
             className="with-limit"
-            label="Espera mínima por solicitud">
-            <InputNumber min={15} placeholder="Default: 15" />
+            label="Espera mínima por solicitud (en segundos)">
+            <InputNumber min={15} placeholder="Default: 15 segundos" />
           </Form.Item>
 
           <Form.Item
             name="training_buffer_max_duration"
             className="with-limit"
             label="Espera máxima de Buffer (en minutos)">
-            <InputNumber min={5} placeholder="Default: 5" />
+            <InputNumber min={5} placeholder="Default: 5 minutos" />
           </Form.Item>
         </>
       )}
