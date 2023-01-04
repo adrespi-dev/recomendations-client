@@ -13,18 +13,18 @@ export const createModel = async (values: any) => {
 };
 
 export const updateModel = async ({
-  ModelId,
+  modelId,
   values,
 }: {
-  ModelId: number;
+  modelId: number;
   values: any;
 }) => {
-  const result = await apiClient.put(`/api/models/${ModelId}/`, values);
+  const result = await apiClient.put(`/api/models/${modelId}/`, values);
   return result.data;
 };
 
-export const deleteModel = async (ModelId: number) => {
-  const result = await apiClient.delete(`/api/models/${ModelId}`);
+export const deleteModel = async (modelId: number) => {
+  const result = await apiClient.delete(`/api/models/${modelId}`);
   return result.data;
 };
 
@@ -36,5 +36,10 @@ export const getHistory = async (
     `/api/models/${modelId}/history`,
     { params: paginationParams }
   );
+  return result.data;
+};
+
+export const trainModel = async (modelId: number) => {
+  const result = await apiClient.post(`/api/models/${modelId}/train/`);
   return result.data;
 };
