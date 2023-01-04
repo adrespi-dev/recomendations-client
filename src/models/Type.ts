@@ -11,3 +11,12 @@ export type ModelTrainingLog = {
   results: any;
   created_at: string;
 };
+
+export type ModelStatus = {
+  active: boolean;
+  current_step: string;
+  description: string;
+  extras?: {
+    trained_at?: string;
+  };
+};

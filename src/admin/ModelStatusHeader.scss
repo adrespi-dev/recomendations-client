@@ -1,0 +1,77 @@
+.modal-status-header-container {
+  max-width: 320px;
+  width: 100%;
+
+  .model-status-header {
+    padding: 9px 12px;
+    border-radius: 4px;
+    background: #ffffff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0e6f5;
+
+    .model-status-icon {
+      cursor: pointer;
+      position: relative;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      margin-right: 10px;
+
+      &::before {
+        content: "";
+        display: none;
+        background: transparent;
+        height: 28px;
+        width: 28px;
+        position: absolute;
+        border: 3px solid #0f62fe;
+        top: -3px;
+        left: -3px;
+        border-radius: 50%;
+        border-bottom-color: transparent;
+        animation: 0.9s spin infinite linear;
+      }
+
+      svg {
+        fill: #000865;
+        height: 28px;
+      }
+    }
+
+    .model-status-title {
+      font-weight: 600;
+      color: #000865;
+    }
+
+    .model-status-description {
+      color: #627386;
+    }
+
+    .ant-skeleton-input {
+      width: 100% !important;
+    }
+  }
+
+  .model-status-header.running {
+    .model-status-icon {
+      &::before {
+        display: block;
+      }
+
+      svg {
+        fill: #0f62fe;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

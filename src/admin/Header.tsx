@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import { authTokensState, currentUserState } from "../auth/State";
 import { Logo } from "../components/Logo";
+import { ModelStatusHeader } from "./ModelStatusHeader";
 
 export const Header: FC = () => {
   const currentUser = useRecoilValue(currentUserState);
@@ -12,6 +13,7 @@ export const Header: FC = () => {
       <div className="layout-header-logo">
         <Logo />
       </div>
+      <ModelStatusHeader />
       <div className="flex-auto"></div>
 
       <Popover
