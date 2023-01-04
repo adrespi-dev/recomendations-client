@@ -18,5 +18,6 @@ export type ModelStatus = {
   description: string;
   extras?: {
     trained_at?: string;
+    last_status?: string;
   };
 };
