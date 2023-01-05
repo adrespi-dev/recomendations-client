@@ -5,8 +5,8 @@ import { Edit2, Trash } from "react-feather";
 type Props = {
   hideEdit?: boolean;
   hideDelete?: boolean;
-  onEdit: Function;
-  onDelete: () => Promise<any>;
+  onEdit?: Function;
+  onDelete?: () => Promise<any>;
 };
 
 export const ActionButtons: FC<Props> = ({
@@ -24,7 +24,7 @@ export const ActionButtons: FC<Props> = ({
       okButtonProps: { type: "primary" },
       cancelText: "No",
       onOk: async () => {
-        await onDelete();
+        onDelete && (await onDelete());
       },
     });
   };
@@ -33,7 +33,7 @@ export const ActionButtons: FC<Props> = ({
     <div className="action-buttons">
       {!hideEdit && (
         <Button
-          onClick={() => onEdit()}
+          onClick={() => onEdit && onEdit()}
           className="btn-edit"
           icon={<Edit2 />}></Button>
       )}

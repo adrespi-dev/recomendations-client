@@ -12,6 +12,7 @@ import { ModelParamsPage } from "../models/Params";
 import { ModelHistory } from "../models/History";
 import { NewModel } from "../models/NewModel";
 import { EnsureModel } from "../models/EnsureModel";
+import { ModelFeatures } from "../features/Features";
 
 export const AppRouter: FC = () => (
   <BrowserRouter>
@@ -42,6 +43,8 @@ export const AppRouter: FC = () => (
             <Route path="config" element={<CatalogSettings />}></Route>
             <Route path="*" element={<Navigate to="query" />} />
           </Route>
+
+          <Route path="features" element={<ModelFeatures />}></Route>
         </Route>
 
         <Route path="users" element={<Users />}></Route>

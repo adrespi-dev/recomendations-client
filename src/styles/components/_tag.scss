@@ -1,3 +1,13 @@
 .ant-tag {
   font-size: inherit;
 }
+
+.tag {
+  display: flex;
+  align-items: center;
+  background: #f0f5ff;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 4px;
+  justify-content: center;
+}

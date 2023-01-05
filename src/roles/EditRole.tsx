@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { Role } from "../auth/User";
 import { getValidationErrors } from "../core/Utils";
 import { updateRole } from "./Api";
-import { permissionsOptions } from "./Utils";
+import { groupPermissionsOptions } from "./Utils";
 
 type Props = {
   role: Role;
@@ -88,11 +88,10 @@ const RoleForm: FC<{
         </Form.Item>
 
         <Form.Item label="Permisos" name="permissions">
-          <Select mode="multiple" placeholder="Seleccione los permisos">
-            {permissionsOptions.map((p) => (
-              <Select.Option value={p.value}>{p.text}</Select.Option>
-            ))}
-          </Select>
+          <Select
+            mode="multiple"
+            placeholder="Seleccione los permisos"
+            options={groupPermissionsOptions()}></Select>
         </Form.Item>
 
         {isError && (

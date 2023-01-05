@@ -1,6 +1,6 @@
 import { Button, Empty, Select } from "antd";
 import { FC, ReactNode, useEffect, useState } from "react";
-import { Cpu, Database, PlayCircle, Settings } from "react-feather";
+import { Cpu, Database, PlayCircle, Settings, Zap } from "react-feather";
 import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -124,6 +124,11 @@ const FuenteDeDatos: FC = () => {
       <NavLink className="layout-navbar-item" to={"model/catalog/candidates"}>
         <Database />
         <div className="layout-navbar-item-desc">Canditatos</div>
+      </NavLink>
+
+      <NavLink className="layout-navbar-item" to={"model/features"}>
+        <Zap />
+        <div className="layout-navbar-item-desc">Características</div>
       </NavLink>
 
       <NavLink className="layout-navbar-item" to={"model/catalog/config"}>

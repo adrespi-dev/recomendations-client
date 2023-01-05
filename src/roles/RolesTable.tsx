@@ -1,4 +1,4 @@
-import { Alert, Empty, Table, Tag, Tooltip } from "antd";
+import { Alert, Empty, Popover, Table, Tag } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { FC, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
@@ -6,7 +6,9 @@ import { Role } from "../auth/User";
 import { ActionButtons } from "../components/ActionButtons";
 import { deleteRole, getRoles } from "./Api";
 import { EditRole } from "./EditRole";
-import { permissionDesc } from "./Utils";
+import { groupPermissions } from "./Utils";
+
+import "./RolesTable.scss";
 
 export const RolesTable: FC = () => {
   const queryClient = useQueryClient();
@@ -78,25 +80,32 @@ export const RolesTable: FC = () => {
 };
 
 const Permissions: FC<{ permissions: string[] }> = ({ permissions }) => {
-  const permissionsNames = permissions
-    .map((p) => permissionDesc(p))
-    .filter((p) => !!p);
-
   return (
-    <Tooltip
+    <Popover
       placement="bottom"
-      title={() => (
-        <div>
-          {permissionsNames.map((p) => (
-            <div>{p}</div>
-          ))}
-        </div>
-      )}>
+      title={() => <PermissionsPopOver permissions={permissions} />}>
       <Tag color="processing">
-        {permissionsNames.length}{" "}
-        {permissionsNames.length == 1 ? "permiso" : "permisos"}
+        {permissions.length} {permissions.length === 1 ? "permiso" : "permisos"}
       </Tag>
-    </Tooltip>
+    </Popover>
+  );
+};
+
+const PermissionsPopOver: FC<{ permissions: string[] }> = ({ permissions }) => {
+  const groups = groupPermissions(permissions);
+  return (
+    <div className="permisions-popover">
+      {groups.map((g) => (
+        <div className="permissions-popover-group">
+          <div className="permissions-popover-group-title">{g.groupName}</div>
+          <div className="permissions-popover-group-permissions">
+            {g.permissions.map((p) => (
+              <div>{p.description}</div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 
