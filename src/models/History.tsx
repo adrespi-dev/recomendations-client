@@ -49,6 +49,7 @@ export const ModelHistory: FC = () => {
                   onChange={(page) => setPage(page)}
                   pageSize={5}
                   total={data.count}
+                  showSizeChanger={false}
                   showTotal={(total, range) =>
                     `Mostrando ${range[0]}-${range[1]} de ${total} registros`
                   }

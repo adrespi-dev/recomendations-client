@@ -8,6 +8,8 @@ import { selectedModelIdState } from "../models/State";
 import { deleteFeature, getFeatures } from "./Api";
 import { Feature } from "./Type";
 import { getFieldTypeName } from "./Utils";
+import { Histogram } from "@ant-design/plots";
+import { Column } from "@ant-design/plots";
 
 export const FeaturesTable: FC = () => {
   const queryClient = useQueryClient();
@@ -51,6 +53,46 @@ export const FeaturesTable: FC = () => {
       key: "classification",
       render: (_, { classification }) => (
         <Classification classification={classification}></Classification>
+      ),
+    },
+    {
+      title: "Distribución",
+      dataIndex: "distribution",
+      key: "distribution",
+      render: (_, { field_name, classification, distribution }) => (
+        <>
+          {distribution && (
+            <div style={{ width: 80, height: 64 }}>
+              {classification === "numerical" && (
+                <Histogram
+                  autoFit
+                  xAxis={false}
+                  yAxis={false}
+                  binField="value"
+                  data={distribution}
+                  legend={false}
+                  tooltip={false}
+                  color={"#0f62fe"}
+                />
+              )}
+              {classification === "categorical" && (
+                <>
+                  <Column
+                    autoFit
+                    xAxis={false}
+                    yAxis={false}
+                    xField={field_name}
+                    yField="value"
+                    data={distribution}
+                    legend={false}
+                    tooltip={false}
+                    color={"#0f62fe"}
+                  />
+                </>
+              )}
+            </div>
+          )}
+        </>
       ),
     },
     {
