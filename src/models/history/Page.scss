@@ -1,0 +1,135 @@
+.history-detail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+
+  .history-loading {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .history-detail-left {
+    flex: 0 0 356px;
+    border-right: 1px solid #e0e6f5;
+    padding: 28px 32px;
+  }
+
+  .history-detail-right {
+    flex: 1 1 auto;
+    padding: 18px 0;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .history-loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.history-node {
+  width: 340px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e6f5;
+  margin-bottom: 48px;
+  font-size: 14px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 48px;
+    width: 4px;
+    background: #e0e6f5;
+    bottom: -49px;
+    left: calc(50% + -2px);
+  }
+
+  &:last-of-type {
+    &::before {
+      display: none;
+    }
+  }
+
+  .history-node-header {
+    border-bottom: 1px solid #e0e6f5;
+    padding: 12px 16px;
+    background: #f0f5ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .history-node-title {
+    font-weight: 600;
+    color: #000865;
+  }
+
+  .history-node-body {
+    padding: 12px 18px;
+  }
+
+  .history-node-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #e0e6f5;
+  }
+
+  .history-node-item-time {
+    color: #627386;
+  }
+}
+
+.history-summary {
+  padding: 18px 0;
+
+  .history-summary-title {
+    font-weight: 600;
+    color: #000865;
+    font-size: 20px;
+  }
+
+  .history-summary-separator {
+    margin-top: 66px;
+  }
+
+  .history-summary-group-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .history-summary-items {
+    border: 1px solid #e0e6f5;
+    border-radius: 8px;
+    font-size: 14px;
+
+    .history-summary-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 10px;
+      border-bottom: 1px solid #c7c7c7;
+    }
+
+    .history-summary-item-label {
+      font-weight: 500;
+    }
+
+    .history-summary-item-value {
+      color: #627386;
+    }
+  }
+}

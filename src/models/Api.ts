@@ -39,6 +39,13 @@ export const getHistory = async (
   return result.data;
 };
 
+export const getHistoryDetail = async (modelId: number, historyId: number) => {
+  const result = await apiClient.get<ModelTrainingLog>(
+    `/api/models/${modelId}/history/${historyId}`
+  );
+  return result.data;
+};
+
 export const trainModel = async (modelId: number) => {
   const result = await apiClient.post(`/api/models/${modelId}/train/`);
   return result.data;

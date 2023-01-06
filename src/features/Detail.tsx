@@ -118,7 +118,6 @@ const Distribution: FC<FeatProps> = ({ feat }) => {
             yField="value"
             data={distribution}
             color={"#0f62fe"}
-            tooltip={false}
           />
         </>
       )}

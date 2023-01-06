@@ -14,6 +14,7 @@ import { NewModel } from "../models/NewModel";
 import { EnsureModel } from "../models/EnsureModel";
 import { ModelFeatures } from "../features/Features";
 import { ModelFeaturesDetail } from "../features/Detail";
+import { HistoryPage } from "../models/history/Page";
 
 export const AppRouter: FC = () => (
   <BrowserRouter>
@@ -30,7 +31,7 @@ export const AppRouter: FC = () => (
         <Route path="model" element={<EnsureModel />}>
           <Route path="params" element={<ModelParamsPage />}></Route>
           <Route path="history" element={<ModelHistory />}></Route>
-          <Route path="history/:id" element={<>LOOOOOOL</>}></Route>
+          <Route path="history/:id" element={<HistoryPage />}></Route>
           <Route path="" element={<Navigate to="params" />} />
           <Route path="*" element={<Navigate to="params" />} />
 
