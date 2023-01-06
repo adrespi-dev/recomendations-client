@@ -13,6 +13,7 @@ import { Summary } from "./Summary";
 import { Feature } from "./Type";
 
 import "./Detail.scss";
+import { BackButton } from "../components/BackButton";
 
 export const ModelFeaturesDetail: FC = () => {
   const [modelId] = useRecoilState(selectedModelIdState);
@@ -37,8 +38,15 @@ export const ModelFeaturesDetail: FC = () => {
         <>
           <div className="page-header">
             {!isLoading && (
-              <div className="page-title">
-                Característica: {collection}.{field_name}
+              <div
+                className="page-title"
+                style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ marginLeft: 8 }}>
+                  <BackButton to="/admin/model/features" />
+                </div>
+                <div>
+                  Característica: {collection}.{field_name}
+                </div>
               </div>
             )}
             {isLoading && <div className="page-title">Cargando</div>}

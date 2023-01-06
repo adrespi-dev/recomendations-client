@@ -1,0 +1,15 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+  color: inherit;
+
+  &:hover {
+    background: #f0f5ff;
+  }
+}
