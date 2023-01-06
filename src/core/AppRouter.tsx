@@ -13,6 +13,7 @@ import { ModelHistory } from "../models/History";
 import { NewModel } from "../models/NewModel";
 import { EnsureModel } from "../models/EnsureModel";
 import { ModelFeatures } from "../features/Features";
+import { ModelFeaturesDetail } from "../features/Detail";
 
 export const AppRouter: FC = () => (
   <BrowserRouter>
@@ -45,6 +46,7 @@ export const AppRouter: FC = () => (
           </Route>
 
           <Route path="features" element={<ModelFeatures />}></Route>
+          <Route path="features/:id" element={<ModelFeaturesDetail />}></Route>
         </Route>
 
         <Route path="users" element={<Users />}></Route>

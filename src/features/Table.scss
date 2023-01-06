@@ -1,0 +1,32 @@
+.features-table {
+  .ant-table-row {
+    cursor: pointer;
+  }
+}
+
+.dashboard-control-container {
+  flex: 0 0 50%;
+  overflow: auto;
+  padding: 18px 16px;
+
+  .dashboard-control {
+    border: 1px solid #e0e6f5;
+    padding: 18px 12px;
+    border-radius: 8px;
+    box-shadow: 1px 4px 9px 3px rgb(71 95 123 / 12%);
+  }
+
+  .dashboard-control-title {
+    font-weight: 600;
+    color: #000865;
+    margin-left: 14px;
+    margin-bottom: 26px;
+  }
+
+  .dashboard-control-body {
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

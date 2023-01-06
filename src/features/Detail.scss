@@ -1,0 +1,19 @@
+.features-dashboard {
+  .feature-summary {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .feature-summary-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ececec;
+    padding: 12px 0px;
+  }
+
+  .feature-summary-item-label {
+    width: 168px;
+    font-weight: 600;
+    color: #000865;
+  }
+}

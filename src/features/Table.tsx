@@ -11,10 +11,16 @@ import { getFieldTypeName } from "./Utils";
 import { Histogram } from "@ant-design/plots";
 import { Column } from "@ant-design/plots";
 
+import "./Table.scss";
+import { useNavigate } from "react-router-dom";
+import { Classification } from "./Classification";
+
 export const FeaturesTable: FC = () => {
   const queryClient = useQueryClient();
 
   const modelId = useRecoilValue(selectedModelIdState)!;
+
+  const navigate = useNavigate();
 
   const { mutateAsync: performDelete } = useMutation(deleteFeature);
 
@@ -52,7 +58,7 @@ export const FeaturesTable: FC = () => {
       dataIndex: "classification",
       key: "classification",
       render: (_, { classification }) => (
-        <Classification classification={classification}></Classification>
+        <Classification classification={classification} />
       ),
     },
     {
@@ -122,9 +128,18 @@ export const FeaturesTable: FC = () => {
         />
       )}
       <Table
+        className="features-table"
         loading={isLoading}
         columns={columns}
         dataSource={data?.results || []}
+        onRow={(feat: Feature) => {
+          return {
+            onClick: (_e) => {
+              console.log(feat);
+              navigate(`/admin/model/features/${feat.id}`);
+            },
+          };
+        }}
         scroll={{
           x: "100%",
           y: "calc(100vh - 62px - 64px - 120px)",
@@ -143,25 +158,6 @@ export const FeaturesTable: FC = () => {
     </>
   );
 };
-
-const Classification: FC<{ classification: string }> = ({ classification }) => (
-  <>
-    {classification === "categorical" && (
-      <div
-        className="tag"
-        style={{ width: 90, background: "#f3395a", color: "#ffffff" }}>
-        Categórica
-      </div>
-    )}
-    {classification === "numerical" && (
-      <div
-        className="tag"
-        style={{ width: 90, background: "#3f69a7", color: "#ffffff" }}>
-        Numérica
-      </div>
-    )}
-  </>
-);
 
 const NoData: FC = () => (
   <Empty description="Aún no ha ingresado ningún registro" />

@@ -2,6 +2,13 @@ import { apiClient } from "../core/ApiClient";
 import { PaginatedResult, PaginationParams } from "../core/Types";
 import { Feature } from "./Type";
 
+export const getFeature = async (modelId: number, featureId: number) => {
+  const result = await apiClient.get<Feature>(
+    `/api/models/${modelId}/features/${featureId}`
+  );
+  return result.data;
+};
+
 export const getFeatures = async (
   modelId: number,
   paginationParams: PaginationParams

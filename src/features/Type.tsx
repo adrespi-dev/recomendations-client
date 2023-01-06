@@ -5,4 +5,5 @@ export type Feature = {
   field_type: string;
   classification: string;
   distribution: [string, number][];
+  values: any[];
 };
