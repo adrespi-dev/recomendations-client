@@ -13,6 +13,21 @@ body {
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: inset 1px 1px 0px rgb(0 0 0 / 10%),
+    inset 0px -1px 0px rgb(0 0 0 / 7%);
+}
+
+*::-webkit-scrollbar-thumb {
+  // background-color: darkgrey;
+  // outline: 1px solid slategrey;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 @import "./utils";
 
 @import "./components/input";

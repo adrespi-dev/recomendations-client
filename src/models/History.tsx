@@ -43,6 +43,7 @@ export const ModelHistory: FC = () => {
                   return <ModelHistoryItem key={log.id} log={log} />;
                 })}
               </div>
+
               {!!data.results?.length && (
                 <Pagination
                   current={page}

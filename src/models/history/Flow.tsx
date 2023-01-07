@@ -40,6 +40,11 @@ export const Node: FC<{
               style={{ fontSize: 20, height: 20, width: 20, color: "#21c87e" }}
             />
           )}
+          {flowsStatus === "success" && isLastNode && (
+            <CheckCircleFilled
+              style={{ fontSize: 20, height: 20, width: 20, color: "#21c87e" }}
+            />
+          )}
           {flowsStatus === "error" && isLastNode && (
             <CloseCircleFilled
               style={{ fontSize: 20, height: 20, width: 20, color: "#ff3c3c" }}
