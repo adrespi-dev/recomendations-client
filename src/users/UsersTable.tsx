@@ -48,8 +48,8 @@ export const UsersTable: FC = () => {
       render: (_, user) => {
         return (
           <ActionButtons
-            hideEdit={user.role == "SuperAdmin"}
-            hideDelete={user.role == "SuperAdmin"}
+            hideEdit={user.role === "SuperAdmin"}
+            hideDelete={user.role === "SuperAdmin"}
             onEdit={() => {
               setIsModalOpen(true);
               setSelectedUser(user);

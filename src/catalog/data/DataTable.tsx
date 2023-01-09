@@ -54,7 +54,7 @@ export const DataTable: FC<{ collectionName: string }> = ({
         dataSource={data?.results || []}
         scroll={{
           x: "100%",
-          y: "calc(100vh - 62px - 64px - 120px)",
+          y: "calc(100vh - 62px - 48px - 120px)",
         }}
         pagination={{
           onChange: (page) => setPage(page),

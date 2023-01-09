@@ -1,6 +1,8 @@
 .layout-main {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
   // background: #f9fafb;
 
   .layout-header {
@@ -23,7 +25,8 @@
   }
 
   .layout-body {
-    height: calc(100vh - 64px);
+    // height: calc(100vh - 64px);
+    flex: 1 0 auto;
     display: flex;
     justify-items: stretch;
   }
@@ -38,6 +41,9 @@
 
   .layout-body-content {
     flex: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
   .layout-navbar-section {
@@ -187,6 +193,15 @@
         background-color: #ffe5e6 !important;
       }
     }
+  }
+
+  .layout-no-superadmin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: 25px;
   }
 }
 

@@ -103,7 +103,7 @@ const ModelTypes: FC = () => {
         }`}
         onClick={() => setModelType("retrieval_and_ranking")}
         style={{ marginRight: 12 }}>
-        <div className="model-type-title">Retrieval + Ranking</div>
+        <div className="model-type-title">Modelo de 2 fases</div>
         <div className="model-type-desc">
           <Paragraph
             ellipsis={{
@@ -121,23 +121,6 @@ const ModelTypes: FC = () => {
             La <strong>fase ranking</strong> valora las recomendaciones de la
             fase anterior y genera recomendaciones muy personalizadas y con
             mucho mas contexto (features)
-          </Paragraph>
-        </div>
-      </div>
-
-      <div
-        className={`model-type ${modelType === "retrieval" ? "selected" : ""}`}
-        onClick={() => setModelType("retrieval")}>
-        <div className="model-type-title">Retrieval</div>
-        <div className="model-type-desc">
-          <Paragraph
-            ellipsis={{
-              rows: 3,
-              expandable: true,
-              symbol: <div>Ver más</div>,
-            }}>
-            Encuentra recomendaciones de manera eficiente sobre bases de datos
-            enormes. No soporta caracteristicas (features)
           </Paragraph>
         </div>
       </div>

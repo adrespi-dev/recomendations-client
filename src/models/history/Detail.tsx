@@ -22,30 +22,32 @@ export const HistoryDetail: FC<Props> = ({
   trace,
 }) => {
   return (
-    <div className="history-detail">
-      <div className="history-detail-left">
-        {isLoading && (
-          <div className="history-loading">
-            <Spinner />
-          </div>
-        )}
-        {!isLoading && (
-          <HistorySummary
-            finishedAt={finishedAt!}
-            flowsStatus={flowsStatus!}
-            results={results!}
-          />
-        )}
-      </div>
-      <div className="history-detail-right">
-        {isLoading && (
-          <div className="history-loading">
-            <Spinner />
-          </div>
-        )}
-        {!isLoading && trace && (
-          <HistoryFlow flowsStatus={flowsStatus!} trace={trace!} />
-        )}
+    <div className="page-full">
+      <div className="history-detail">
+        <div className="history-detail-left">
+          {isLoading && (
+            <div className="history-loading">
+              <Spinner />
+            </div>
+          )}
+          {!isLoading && (
+            <HistorySummary
+              finishedAt={finishedAt!}
+              flowsStatus={flowsStatus!}
+              results={results!}
+            />
+          )}
+        </div>
+        <div className="history-detail-right">
+          {isLoading && (
+            <div className="history-loading">
+              <Spinner />
+            </div>
+          )}
+          {!isLoading && trace && (
+            <HistoryFlow flowsStatus={flowsStatus!} trace={trace!} />
+          )}
+        </div>
       </div>
     </div>
   );

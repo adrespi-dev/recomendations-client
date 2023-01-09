@@ -1,5 +1,6 @@
 import { Avatar, Menu, MenuProps, Popover } from "antd";
 import { FC } from "react";
+import { NavLink } from "react-router-dom";
 import { useRecoilValue, useResetRecoilState } from "recoil";
 import { authTokensState, currentUserState } from "../auth/State";
 import { Logo } from "../components/Logo";
@@ -11,7 +12,9 @@ export const Header: FC = () => {
   return (
     <div className="layout-header">
       <div className="layout-header-logo">
-        <Logo />
+        <NavLink to="/">
+          <Logo />
+        </NavLink>
       </div>
       <ModelStatusHeader />
       <div className="flex-auto"></div>

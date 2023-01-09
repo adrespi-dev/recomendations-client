@@ -10,7 +10,7 @@ const PERMISSIONS_MAP: any = {
   delete_user: "Eliminar Usuarios",
 
   view_recmodel: "Ver modelos",
-  add_recmodel: "Crear modelos",
+  add_recmodel: "Agregar modelos",
   change_recmodel: "Modificar modelos",
   delete_recmodel: "Eliminar modelos",
 
