@@ -1,7 +1,8 @@
 import { Form, Input, InputNumber } from "antd";
 import Password from "antd/es/input/Password";
+import { FC } from "react";
 
-export const FormMongoDB = () => {
+export const FormMySQL: FC = () => {
   return (
     <>
       <div className="flex">
@@ -33,7 +34,7 @@ export const FormMongoDB = () => {
       <div className="flex">
         <Form.Item
           style={{ paddingRight: 8, flex: "70%" }}
-          label="Colección de Consultas"
+          label="Tabla de Consultas"
           name="query_collection"
           rules={[{ required: true, message: "Ingrese un nombre" }]}>
           <Input />
@@ -51,7 +52,7 @@ export const FormMongoDB = () => {
       <div className="flex">
         <Form.Item
           style={{ paddingRight: 8, flex: "70%" }}
-          label="Colección de Candidatos"
+          label="Tabla de Candidatos"
           name="candidates_collection"
           rules={[{ required: true, message: "Ingrese un nombre" }]}>
           <Input />
