@@ -13,7 +13,7 @@ const NoConfig: FC = () => (
   <Empty
     className="empty-full"
     description="No ha configurado una fuente de datos para el catálogo de datos">
-    <NavLink to={"/admin/catalog/config"}>
+    <NavLink to={"/admin/model/catalog/config"}>
       <Button type="primary">Configurar</Button>
     </NavLink>
   </Empty>

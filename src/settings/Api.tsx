@@ -1,4 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import {
+  useMutation,
+  useQuery,
+  useQueryClient,
+  UseQueryOptions,
+  UseQueryResult,
+} from "react-query";
 import { useRecoilValue } from "recoil";
 import { apiClient } from "../core/ApiClient";
 import { selectedModelIdState } from "../models/State";
@@ -23,9 +29,13 @@ const getSettingAsync = (modelId: number, code: SettingCode) => async () => {
 const getSetting = (modelId: number, code: SettingCode) =>
   getSettingAsync(modelId, code);
 
-export const useSetting = (code: SettingCode) => {
+export const useSetting = (
+  code: SettingCode,
+  options?: UseQueryOptions
+): UseQueryResult<any> => {
   const modelId = useRecoilValue(selectedModelIdState);
-  return useQuery(`setting-get-${code}`, getSetting(modelId!, code));
+  // @ts-ignore
+  return useQuery(`setting-get-${code}`, getSetting(modelId!, code), options);
 };
 
 export const setSettings = async ({

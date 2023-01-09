@@ -1,6 +1,6 @@
 import { Button, Form, message, Select } from "antd";
 import { useForm } from "antd/es/form/Form";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { ErrorSection } from "../components/ErrorSection";
 import { SpinnerSection } from "../components/SpinnerSection";
 import { useSetSetting, useSetting } from "../settings/Api";
@@ -20,7 +20,9 @@ export const CatalogSettings: FC = () => {
     refetch,
     isLoading,
     data = {},
-  } = useSetting("catalog-datasource");
+  } = useSetting("catalog-datasource", {
+    onSuccess: (val: any) => val && setType(val.type),
+  });
 
   const { isLoading: isLoadingEdit, mutateAsync: setSetting } =
     useSetSetting("catalog-datasource");
