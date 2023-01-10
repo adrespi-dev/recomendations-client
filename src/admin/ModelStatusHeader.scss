@@ -40,6 +40,12 @@
       }
     }
 
+    .model-status-content {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .model-status-title {
       font-weight: 600;
       color: #000865;
