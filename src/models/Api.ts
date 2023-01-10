@@ -1,9 +1,19 @@
 import { apiClient } from "../core/ApiClient";
 import { PaginatedResult, PaginationParams } from "../core/Types";
-import { ModelTrainingLog, RecModel } from "./Type";
+import {
+  ModelTrainingLog,
+  PredictionProps,
+  PredictResponse,
+  RecModel,
+} from "./Type";
 
 export const getModels = async () => {
   const result = await apiClient.get<RecModel[]>("/api/models/");
+  return result.data;
+};
+
+export const getModel = async (id: number) => {
+  const result = await apiClient.get<RecModel>(`/api/models/${id}`);
   return result.data;
 };
 
@@ -48,5 +58,13 @@ export const getHistoryDetail = async (modelId: number, historyId: number) => {
 
 export const trainModel = async (modelId: number) => {
   const result = await apiClient.post(`/api/models/${modelId}/train/`);
+  return result.data;
+};
+
+export const predictModel = async ({ modelId, params }: PredictionProps) => {
+  const result = await apiClient.post<PredictResponse>(
+    `/api/models/${modelId}/predict/`,
+    params
+  );
   return result.data;
 };

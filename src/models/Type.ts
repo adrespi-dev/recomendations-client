@@ -2,6 +2,20 @@ export type RecModel = {
   id: number;
   name: string;
   model_type: string;
+  trained_last_status?: "success" | "error";
+};
+
+export type PredictionProps = { modelId: number; params: PredictParams };
+
+export type PredictParams = { queryId: string };
+
+export type Prediction = {
+  candidate: any;
+  ranking: number;
+};
+
+export type PredictResponse = {
+  predictions: Prediction[];
 };
 
 export type ModelTrainingLog = {

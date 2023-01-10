@@ -1,6 +1,6 @@
 import { Button, Empty, Select } from "antd";
 import { FC, ReactNode, useEffect, useState } from "react";
-import { Cpu, Database, PlayCircle, Settings, Zap } from "react-feather";
+import { Award, Cpu, Database, PlayCircle, Settings, Zap } from "react-feather";
 import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -107,6 +107,11 @@ const Entrenamiento: FC = () => {
       <NavLink className="layout-navbar-item" to={"model/history"}>
         <PlayCircle />
         <div className="layout-navbar-item-desc">Historial</div>
+      </NavLink>
+
+      <NavLink className="layout-navbar-item" to={"model/recommendations"}>
+        <Award />
+        <div className="layout-navbar-item-desc">Recomendaciones</div>
       </NavLink>
     </div>
   );
