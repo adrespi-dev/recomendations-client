@@ -3,7 +3,7 @@ import { FC } from "react";
 import { useMutation } from "react-query";
 import ReactTimeAgo from "react-time-ago";
 import { useRecoilState } from "recoil";
-import { trainModel } from "../models/Api";
+import { cancelTrainModel, trainModel } from "../models/Api";
 import { selectedModelIdState } from "../models/State";
 import { ModelStatus } from "../models/Type";
 import { getStepName } from "../models/utils";
@@ -14,14 +14,32 @@ import { ReactComponent as PlayIcon } from "./play.svg";
 export const ModelStatusPlayer: FC<{ status: ModelStatus }> = ({ status }) => {
   const [modelId] = useRecoilState(selectedModelIdState);
 
-  const { mutate: train, isLoading } = useMutation(trainModel);
+  const isDisable =
+    status.current_step === "enqueueing" || status.current_step === "buffering";
+
+  const { mutate: train, isLoading: isLoadingTrain } = useMutation(trainModel);
+  const { mutate: cancelTrain, isLoading: isLoadingCancelTrain } =
+    useMutation(cancelTrainModel);
+
+  const isLoading = isLoadingTrain || isLoadingCancelTrain;
+
   return (
     <div
       className={classNames("model-status-header", {
         running: isLoading || status.active,
       })}>
-      <button onClick={() => train(modelId!)} className="model-status-icon">
-        <PlayIcon />
+      <button
+        onClick={() => {
+          if (!status.active) {
+            train(modelId!);
+          } else {
+            cancelTrain(modelId!);
+          }
+        }}
+        className="model-status-icon"
+        disabled={isDisable}>
+        {status.active && <div className="model-status-icon-stop"></div>}
+        {!status.active && <PlayIcon />}
       </button>
       {!status.active && <NoActive status={status} />}
       {status.active && <Active status={status} />}

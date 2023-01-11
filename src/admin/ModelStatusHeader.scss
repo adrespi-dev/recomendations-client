@@ -34,9 +34,22 @@
         animation: 0.9s spin infinite linear;
       }
 
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
       svg {
         fill: #000865;
         height: 28px;
+      }
+
+      .model-status-icon-stop {
+        height: 28px;
+        width: 28px;
+        border: 6px solid white;
+        background: #0f62fe;
+        border-radius: 8px;
       }
     }
 
@@ -70,9 +83,6 @@
         fill: #0f62fe;
       }
     }
-  }
-
-  .model-status-status-icon {
   }
 }
 

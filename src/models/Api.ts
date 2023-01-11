@@ -61,6 +61,11 @@ export const trainModel = async (modelId: number) => {
   return result.data;
 };
 
+export const cancelTrainModel = async (modelId: number) => {
+  const result = await apiClient.post(`/api/models/${modelId}/cancel_train/`);
+  return result.data;
+};
+
 export const predictModel = async ({ modelId, params }: PredictionProps) => {
   const result = await apiClient.post<PredictResponse>(
     `/api/models/${modelId}/predict/`,
