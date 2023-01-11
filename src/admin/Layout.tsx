@@ -2,16 +2,17 @@ import { Alert } from "antd";
 import { FC } from "react";
 import { Outlet } from "react-router";
 import { useRecoilValue } from "recoil";
-import { currentUserState } from "../auth/State";
+import { currentPermissionsState } from "../auth/State";
 import { Header } from "./Header";
 import "./Layout.scss";
 import { Navbar } from "./Navbar";
 
 export const Layout: FC = () => {
-  const currentUser = useRecoilValue(currentUserState);
+  const permissions = useRecoilValue(currentPermissionsState);
+
   return (
     <div className="layout-main">
-      {currentUser?.role === "role" && (
+      {permissions!.role === "SuperAdmin" && (
         <Alert
           className="layout-no-superadmin"
           type="warning"

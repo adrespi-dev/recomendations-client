@@ -2,6 +2,7 @@ import { Alert, Empty, Table } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { FC, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useHasPermission } from "../auth/Hooks";
 import { User } from "../auth/User";
 import { ActionButtons } from "../components/ActionButtons";
 import { deleteUser, getUsers } from "./Api";
@@ -15,6 +16,8 @@ export const UsersTable: FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+
+  const hasPermission = useHasPermission();
 
   const columns: ColumnsType<User> = [
     {
@@ -48,8 +51,12 @@ export const UsersTable: FC = () => {
       render: (_, user) => {
         return (
           <ActionButtons
-            hideEdit={user.role === "SuperAdmin"}
-            hideDelete={user.role === "SuperAdmin"}
+            hideEdit={
+              user.role === "SuperAdmin" || !hasPermission("change_user")
+            }
+            hideDelete={
+              user.role === "SuperAdmin" || !hasPermission("delete_user")
+            }
             onEdit={() => {
               setIsModalOpen(true);
               setSelectedUser(user);

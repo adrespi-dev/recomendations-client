@@ -9,6 +9,7 @@ import { EditRole } from "./EditRole";
 import { groupPermissions } from "./Utils";
 
 import "./RolesTable.scss";
+import { useHasPermission } from "../auth/Hooks";
 
 export const RolesTable: FC = () => {
   const queryClient = useQueryClient();
@@ -19,6 +20,8 @@ export const RolesTable: FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState<Role | null>(null);
+
+  const hasPermission = useHasPermission();
 
   const columns: ColumnsType<Role> = [
     {
@@ -46,10 +49,12 @@ export const RolesTable: FC = () => {
               setIsModalOpen(true);
               setSelectedRole(role);
             }}
+            hideEdit={!hasPermission("change_group")}
             onDelete={async () => {
               await performDelete(role.id);
               queryClient.invalidateQueries("list-roles");
             }}
+            hideDelete={!hasPermission("delete_group")}
           />
         );
       },

@@ -2,6 +2,7 @@ import { atom, selector } from "recoil";
 import { User } from "./User";
 import jwt_decode from "jwt-decode";
 import { localStorageEffect } from "../core/LocalStorageEffect";
+import { MyPermissions } from "./Type";
 
 export type AuthTokens = { access: string; refresh: string };
 
@@ -21,4 +22,9 @@ export const currentUserState = selector<User | null>({
 
     return jwt_decode(tokens.access) as User;
   },
+});
+
+export const currentPermissionsState = atom<MyPermissions | null>({
+  key: "myPermissions",
+  default: null,
 });
