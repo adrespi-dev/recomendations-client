@@ -16,6 +16,7 @@ import { ModelFeatures } from "../features/Features";
 import { ModelFeaturesDetail } from "../features/Detail";
 import { HistoryPage } from "../models/history/Page";
 import { ModelRecommendations } from "../recommendations";
+import { ApiKeys } from "../api-keys/ApiKeys";
 
 export const AppRouter: FC = () => (
   <BrowserRouter>
@@ -59,6 +60,7 @@ export const AppRouter: FC = () => (
 
         <Route path="users" element={<Users />}></Route>
         <Route path="roles" element={<Roles />}></Route>
+        <Route path="api-keys" element={<ApiKeys />}></Route>
         <Route path="" element={<Navigate to="users" />} />
         <Route path="*" element={<Navigate to="users" />} />
       </Route>

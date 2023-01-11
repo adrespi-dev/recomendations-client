@@ -22,6 +22,10 @@ const PERMISSIONS_MAP: any = {
   view_feature: "Ver características",
   add_feature: "Agregar características",
   delete_feature: "Eliminar características",
+
+  add_apikey: "Agregar lLaves de API",
+  view_apikey: "Ver llaves de API",
+  delete_apikey: "Eliminar llaves de API",
 };
 
 export const permissionDesc = (code: string) => PERMISSIONS_MAP[code];
@@ -31,13 +35,21 @@ type PermissionsGroup = {
   permissions: { code: string; description: string }[];
 };
 
-const groups = ["group", "user", "recmodel", "traininglog", "feature"];
+const groups = [
+  "group",
+  "user",
+  "recmodel",
+  "traininglog",
+  "feature",
+  "apikey",
+];
 const groupNames: any = {
   group: "Grupo",
   user: "Usuario",
   recmodel: "Modelo",
   traininglog: "Historial",
   feature: "Características",
+  apikey: "Llaves de API",
 };
 
 export const groupPermissions = (codes: string[]): PermissionsGroup[] => {
