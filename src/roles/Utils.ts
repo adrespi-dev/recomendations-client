@@ -13,6 +13,9 @@ const PERMISSIONS_MAP: any = {
   add_recmodel: "Agregar modelos",
   change_recmodel: "Modificar modelos",
   delete_recmodel: "Eliminar modelos",
+  train_recmodel: "Entrenar modelos",
+  cancel_train_recmodel: "Cancelar entrenamientos",
+  predict_recmodel: "Obtener recomendaciones",
 
   view_traininglog: "Ver historial de entrenamiento",
 

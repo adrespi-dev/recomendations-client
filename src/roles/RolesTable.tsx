@@ -22,6 +22,11 @@ export const RolesTable: FC = () => {
 
   const columns: ColumnsType<Role> = [
     {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
       title: "Nombre",
       dataIndex: "name",
       key: "name",
