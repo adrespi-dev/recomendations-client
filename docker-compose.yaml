@@ -6,8 +6,8 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: ["http-server", "build"]
+    command: ["serve", "-s", "build"]
     ports:
-      - 3086:8080
+      - 3086:3000
     volumes:
       - ./:/app

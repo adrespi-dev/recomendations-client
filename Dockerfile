@@ -8,7 +8,7 @@ COPY package.json ./
 COPY yarn.lock ./
 RUN yarn install --silent
 
-RUN yarn global add http-server
+RUN yarn global add serve
 
 COPY . ./
 
