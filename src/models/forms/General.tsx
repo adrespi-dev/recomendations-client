@@ -1,10 +1,14 @@
-import { Form, Input, InputNumber, Select } from "antd";
+import { Form, Input, Select } from "antd";
 import { FC } from "react";
 import { useQueryClient } from "react-query";
+import { useRecoilValue } from "recoil";
+import { selectedModelIdState } from "../State";
 import { BaseForm } from "./Base";
 
 export const GeneralForm: FC = () => {
   const queryClient = useQueryClient();
+
+  const modelId = useRecoilValue(selectedModelIdState);
 
   // @ts-ignore
   const timezones: any[] = Intl.supportedValuesOf("timeZone");
@@ -22,6 +26,10 @@ export const GeneralForm: FC = () => {
       onSuccess={() => queryClient.invalidateQueries("list-models")}
       content={(_data) => (
         <>
+          <Form.Item className="with-limit" label="Código del modelo">
+            <Input readOnly value={modelId!} />
+          </Form.Item>
+
           <Form.Item
             className="with-limit"
             label="Nombre del modelo"

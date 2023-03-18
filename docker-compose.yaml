@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+  app:
+    image: recommendations-client
+    command: bash -c "tail -f /dev/null"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3036:3000
+    volumes:
+      - ./:/app
