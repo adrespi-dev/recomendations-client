@@ -3,11 +3,11 @@ version: "3.4"
 services:
   app:
     image: recommendations-client
-    command: bash -c "tail -f /dev/null"
     build:
       context: .
       dockerfile: ./Dockerfile
+    command: ["http-server", "build"]
     ports:
-      - 3036:3000
+      - 3086:8080
     volumes:
       - ./:/app

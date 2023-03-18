@@ -10,9 +10,9 @@ RUN yarn install --silent
 
 RUN yarn global add http-server
 
-RUN yarn build
-
 COPY . ./
 
+RUN yarn build
+
 # start app
-ENTRYPOINT ["http-server", "dist"]
+# CMD ["http-server", "build"]
